@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "api_key": {
+                    "description": "Your API Key",
+                    "type": "string"
+                },
+                "n": {
+                    "description": "The number of keyword combinations (n-grams) that you wish to extract.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5
+                },
+                "text": {
+                    "description": "The text that you want to analyze. It should not contain HTML tags.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "api_key"
+            ]
+        }
+    }
+}

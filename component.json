@@ -1,0 +1,272 @@
+{
+    "title": "DatumBox",
+    "description": "Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/datumbox.com/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.datumbox.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AdultContentDetection": {
+            "main": "./lib/actions/AdultContentDetection.js",
+            "title": "Classifies the Document as adult or noadult",
+            "description": "The Adult Content Detection function classifies the documents as adult or noadult based on their context. It can be used to detect whether a document contains content unsuitable for minors.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AdultContentDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CommercialDetection": {
+            "main": "./lib/actions/CommercialDetection.js",
+            "title": "Classifies the Document as commercial or nocommercial",
+            "description": "The Commercial Detection function labels the documents as commercial or non-commercial based on their keywords and expressions. It can be used to detect whether a website is commercial or not.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CommercialDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DocumentSimilarity": {
+            "main": "./lib/actions/DocumentSimilarity.js",
+            "title": "Estimates the similarity between 2 Documents",
+            "description": "The Document Similarity function estimates the degree of similarity between two documents. It can be used to detect duplicate webpages or detect plagiarism.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DocumentSimilarity.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "EducationalDetection": {
+            "main": "./lib/actions/EducationalDetection.js",
+            "title": "Classifies the Document as educational or noeducational",
+            "description": "The Educational Detection function classifies the documents as educational or non-educational based on their context. It can be used to detect whether a website is educational or not.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/EducationalDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GenderDetection": {
+            "main": "./lib/actions/GenderDetection.js",
+            "title": "Gender Detection Service",
+            "description": "The Gender Detection function identifies if a particular document is written-by or targets-to a man or a woman based on the context, the words and the idioms found in the text.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GenderDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "KeywordExtraction": {
+            "main": "./lib/actions/KeywordExtraction.js",
+            "title": "Extracts the Keywords of the Document",
+            "description": "The Keyword Extraction function enables you to extract from an arbitrary document all the keywords and word-combinations along with their occurrences in the text.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/KeywordExtraction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "LanguageDetection": {
+            "main": "./lib/actions/LanguageDetection.js",
+            "title": "Identifies the Language of the Document",
+            "description": "The Language Detection function identifies the natural language of the given document based on its words and context. This classifier is able to detect 96 different languages.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/LanguageDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReadabilityAssessment": {
+            "main": "./lib/actions/ReadabilityAssessment.js",
+            "title": "Evaluates the Readability of the Document",
+            "description": "The Readability Assessment function determines the degree of readability of a document based on its terms and idioms. The texts are classified as basic, intermediate and advanced depending their difficulty.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReadabilityAssessment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SentimentAnalysis": {
+            "main": "./lib/actions/SentimentAnalysis.js",
+            "title": "Identifies the Sentiment of the Document",
+            "description": "The Sentiment Analysis function classifies documents as positive, negative or neutral (lack of sentiment) depending on whether they express a positive, negative or neutral opinion.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SentimentAnalysis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SpamDetection": {
+            "main": "./lib/actions/SpamDetection.js",
+            "title": "Classifies the Document as spam or nospam",
+            "description": "The Spam Detection function labels documents as spam or nospam by taking into account their context. It can be used to filter out spam emails and comments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SpamDetection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SubjectivityAnalysis": {
+            "main": "./lib/actions/SubjectivityAnalysis.js",
+            "title": "Classifies Document as Subjective or Objective",
+            "description": "The Subjectivity Analysis function categorizes documents as subjective or objective based on their writing style. Texts that express personal opinions are labeled as subjective and the others as objective.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SubjectivityAnalysis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TextExtraction": {
+            "main": "./lib/actions/TextExtraction.js",
+            "title": "Extracts the clear text from Webpage",
+            "description": "The Text Extraction function enables you to extract the important information from a given webpage. Extracting the clear text of the documents is an important step before any other analysis.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TextExtraction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TopicClassification": {
+            "main": "./lib/actions/TopicClassification.js",
+            "title": "Identifies the Topic of the Document",
+            "description": "The Topic Classification function assigns documents in 12 thematic categories based on their keywords, idioms and jargon. It can be used to identify the topic of the texts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TopicClassification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TwitterSentimentAnalysis": {
+            "main": "./lib/actions/TwitterSentimentAnalysis.js",
+            "title": "Identifies the Sentiment of Twitter Messages",
+            "description": "The Twitter Sentiment Analysis function allows you to perform Sentiment Analysis on Twitter. It classifies the tweets as positive, negative or neutral depending on their context.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TwitterSentimentAnalysis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

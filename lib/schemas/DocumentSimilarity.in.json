@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "api_key": {
+                    "description": "Your API Key",
+                    "type": "string"
+                },
+                "original": {
+                    "description": "The first text. It should not contain HTML tags.",
+                    "type": "string"
+                },
+                "copy": {
+                    "description": "The second text. It should not contain HTML tags.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "api_key"
+            ]
+        }
+    }
+}

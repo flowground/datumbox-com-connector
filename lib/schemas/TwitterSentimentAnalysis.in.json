@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "api_key": {
+                    "description": "Your API Key",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The text of the tweet that we evaluate.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "api_key"
+            ]
+        }
+    }
+}
